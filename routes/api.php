@@ -17,6 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Запрос на получение всех сообщений
 Route::get('/chat/', 'ChatController@index');
 
-Route::post('/chat/add', 'ChatController@store');
+// Запрос на добавление комментария
+Route::put('/chat/add', 'ChatController@store');
+
+// Запрос на удаление всех сообщений по id пользователя.
+Route::delete('/chat/del/{user_id}', 'ChatController@destroy');
